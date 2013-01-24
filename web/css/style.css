@@ -1,0 +1,59 @@
+body{ 
+    font: 80.5%  sans-serif;
+    padding: 50px;
+}
+
+form{
+    background: #eee;
+    padding: 5px;
+    width: 480px;
+    margin: 0px auto;
+}
+
+form div.input{
+    background: #dfebff;
+    padding: 5px;
+}
+
+form div.input:hover{
+    background: #eef4ff;
+}
+
+form div.text input:hover{
+    border: 1px solid #000;
+}
+
+form div.text input:focus{
+    border: 1px solid #f00;
+}
+
+form div.input label{
+    float: left;
+    width: 120px;
+    font-weight: 900;
+    cursor: pointer;
+}
+
+form div.input label:hover{
+    color: #f00;
+}
+
+form div.text input{
+    padding: 5px;
+    border: 1px solid #ccc;
+}
+
+form div.submit input{
+    background: #b0d0ff;
+    border: 1px solid #ccc;
+    cursor: pointer;
+    margin-left: 125px;
+}
+
+form div.submit input:hover{
+    background: #b7efaa;
+}
+
+.title_column{
+    background: #dfebff;
+}

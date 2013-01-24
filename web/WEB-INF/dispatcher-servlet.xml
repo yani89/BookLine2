@@ -6,15 +6,18 @@
        xmlns:tx="http://www.springframework.org/schema/tx"
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
        http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-2.5.xsd
-       http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-2.5.xsd">
+       http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-2.5.xsd" xmlns:context="http://www.springframework.org/schema/context" xmlns:mvc="http://www.springframework.org/schema/mvc">
 
     <bean class="org.springframework.web.servlet.mvc.support.ControllerClassNameHandlerMapping"/>
 
+    <context:annotation-config/>
+    <context:component-scan base-package="com.bookline2.controller"/>
+    <mvc:annotation-driven/>
     <!--
     Most controllers will use the ControllerClassNameHandlerMapping above, but
     for the index controller we are using ParameterizableViewController, so we must
     define an explicit mapping for it.
-    -->
+    
     <bean id="urlMapping" class="org.springframework.web.servlet.handler.SimpleUrlHandlerMapping">
         <property name="mappings">
             <props>
@@ -22,7 +25,7 @@
             </props>
         </property>
     </bean>
-
+    -->
     <bean id="viewResolver"
           class="org.springframework.web.servlet.view.InternalResourceViewResolver"
           p:prefix="/WEB-INF/jsp/"
@@ -30,9 +33,25 @@
 
     <!--
     The index controller.
-    -->
+    
     <bean name="indexController"
           class="org.springframework.web.servlet.mvc.ParameterizableViewController"
           p:viewName="index" />
-
+    -->
+    <bean id="messageSource"
+        class="org.springframework.context.support.ResourceBundleMessageSource"
+        p:basename="com.bookline.configure.messages"
+    />
+    
+    <bean id="velocityConfig"
+        class="org.springframework.web.servlet.view.velocity.VelocityConfigurer"
+        p:resourceLoaderPath="/WEB-INF/velocity"
+    />
+    
+    <bean id="viewResolver"
+        class="org.springframework.web.servlet.view.velocity.VelocityViewResolver"
+        p:prefix="" p:suffix=".html" p:cache="true"
+    />
+    
+    
 </beans>

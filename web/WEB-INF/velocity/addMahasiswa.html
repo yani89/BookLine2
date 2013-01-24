@@ -1,0 +1,72 @@
+<!--
+To change this template, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Test SpringMVC</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <link rel="stylesheet" ref="../css/style.css" type="text/css"/>
+        <link type="text/css" href="../css/redmond/jquery-ui-1.8.11.custom.css" rel="Stylesheet"/>
+        
+        <script type="text/javascript" src="../js/jquery-ui-1.5.1.min.js"></script>
+        <script type="text/javascript" src="../js/jquery-ui-1.8.11.custom.min.js"></script>
+        <script type="text/javascript">
+            $(function()
+            {
+                $("#tanggal_lahir").datepicker
+                ({
+                    dateFormat  : 'dd/mm/yy',
+                    changeYear  : true,
+                    changeMonth : true
+                });
+            }
+            )
+        </script>
+    </head>
+    <body>
+        <form name="mahasiswa" method="POST">
+            <div class="input text">
+                <label>Nim</label>
+                <input type="text" name="nim" value="$!mahasiswa.Nim"/>
+                #springBind("mahasiswa.nim")
+                <font color="red">#springShowErrors("<br/>" "")</font>
+            </div>
+            <div class="input text">
+                <label>Nama</label>
+                <input type="text" name="nama" value="$!mahasiswa.Nama"/>
+                #springBind("mahasiswa.nama")
+                <font color="red">#springShowErrors("<br/>" "")</font>
+            </div>
+            <div class="input text">
+                <label>Tanggal Lahir</label>
+                <input type="text" name="tanggal_lahir" value="$!mahasiswa.tanggal_lahir"/>
+                #springBind("mahasiswa.tanggal_lahir")
+                <font color="red">#springShowErrors("<br/>" "")</font>
+            </div>
+            <div class="input text">
+                <label>Jurusan</label>
+                <input type="text" name="jurusan" value="$!mahasiswa.jurusan"/>
+                #springBind("mahasiswa.jurusan")
+                <font color="red">#springShowErrors("<br/>" "")</font>
+            </div>
+            <div class="input text">
+                <label>Email</label>
+                <input type="text" name="email" value="$!mahasiswa.email"/>
+                #springBind("mahasiswa.email")
+                <font color="red">#springShowErrors("<br/>" "")</font>
+            </div>
+            <div class="input text">
+                <label>Alamat</label>
+                <input type="text" name="alamat" value="$!mahasiswa.Alamat"/>
+                #springBind("mahasiswa.alamat")
+                <font color="red">#springShowErrors("<br/>" "")</font>
+            </div>
+            <div class="input submit">
+                <input type="submit" value="Submit"/>
+            </div>
+        </form>
+        <div>TODO write content</div>
+    </body>
+</html>
